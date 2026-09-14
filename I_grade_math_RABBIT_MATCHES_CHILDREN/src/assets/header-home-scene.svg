@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eaf8ff"/>
+      <stop offset="1" stop-color="#f9fdff"/>
+    </linearGradient>
+    <linearGradient id="hill1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d7f2df"/>
+      <stop offset="1" stop-color="#bde8cf"/>
+    </linearGradient>
+    <linearGradient id="hill2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c4ead7"/>
+      <stop offset="1" stop-color="#a8dfca"/>
+    </linearGradient>
+  </defs>
+  <rect width="1440" height="180" fill="url(#sky)"/>
+  <g opacity=".55" fill="#fff">
+    <ellipse cx="260" cy="38" rx="58" ry="18"/>
+    <ellipse cx="325" cy="46" rx="42" ry="14"/>
+    <ellipse cx="1115" cy="34" rx="62" ry="18"/>
+  </g>
+  <circle cx="1030" cy="42" r="26" fill="#ffd35a" opacity=".9"/>
+  <g stroke="#ffd35a" stroke-width="4" stroke-linecap="round" opacity=".75">
+    <path d="M1030 2v14M1030 68v14M990 42h14M1056 42h14M1002 14l10 10M1048 60l10 10M1058 14l-10 10M1012 60l-10 10"/>
+  </g>
+  <path d="M0 130 Q150 82 310 128 T640 124 T965 128 T1260 120 T1440 128 V180 H0Z" fill="url(#hill1)"/>
+  <path d="M0 148 Q185 112 365 146 T760 142 T1130 150 T1440 145 V180 H0Z" fill="url(#hill2)" opacity=".9"/>
+  <g transform="translate(865 82)">
+    <rect x="0" y="26" width="68" height="46" rx="6" fill="#fff8ee" stroke="#d8b58d" stroke-width="2"/>
+    <path d="M-8 30L34 0l42 30z" fill="#ef8b62"/>
+    <rect x="26" y="44" width="16" height="28" rx="2" fill="#c88b65"/>
+    <rect x="8" y="40" width="13" height="13" rx="2" fill="#92d4ef"/>
+    <rect x="48" y="40" width="13" height="13" rx="2" fill="#92d4ef"/>
+  </g>
+  <g fill="#78cda8" opacity=".95">
+    <circle cx="810" cy="118" r="23"/><circle cx="836" cy="113" r="27"/><circle cx="963" cy="119" r="25"/><circle cx="991" cy="114" r="22"/>
+  </g>
+</svg>

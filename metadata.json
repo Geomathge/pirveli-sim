@@ -1,0 +1,8 @@
+{
+  "name": "Remix I კლასის მათემატიკა - პირველი თავი",
+  "description": "I კლასის მათემატიკის ინტერაქციული სასწავლო აპლიკაცია",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

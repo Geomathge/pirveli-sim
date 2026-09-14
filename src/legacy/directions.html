@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ka">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2472b9">
+  <meta name="description" content="I კლასის მათემატიკის პირველი თავის ინტერაქტიული სასწავლო აპლიკაცია">
+  <title>მოვემზადოთ მათემატიკისთვის</title>
+  <link rel="preload" as="image" href="assets/characters/face-pair-ready.png" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/characters/face-pair-right-hands-up.png" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/characters/girl-boy-handshake.png" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/book/book-girl-step-up-a.png?v=20260910-1" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/book/book-girl-step-up-b.png?v=20260910-1" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/book/book-boy-step-down-a.png?v=20260910-1" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/book/book-boy-step-down-b.png?v=20260910-1" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/objects/rabbit-land.png?v=20260910-1" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/objects/rabbit-hop.png?v=20260910-1" fetchpriority="high">
+  
+  <link rel="stylesheet" href="./directions.css?v=20260914-v6">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true"><span>1</span></div>
+      <div class="brand-copy">
+        <p>მათემატიკა · I კლასი</p>
+        <h1>მოვემზადოთ მათემატიკისთვის</h1>
+      </div>
+      <button class="sound-btn" id="soundBtn" type="button" aria-label="ხმის ჩართვა ან გამორთვა">🔊</button>
+    </header>
+
+    <nav class="lesson-strip" id="lessonStrip" aria-label="გაკვეთილები"></nav>
+
+    <section class="learning-card" aria-live="polite">
+      <div class="lesson-heading">
+        <div>
+          <p class="eyebrow" id="lessonCount">გაკვეთილი 1 · 5-დან</p>
+          <h2 id="lessonTitle">მარჯვნივ, მარცხნივ, შორის</h2>
+        </div>
+        <div class="stars" id="stars" aria-label="მიღებული ვარსკვლავები">☆ ☆ ☆</div>
+      </div>
+
+      <div class="stage-tabs" role="tablist" aria-label="სასწავლო ეტაპები">
+        <button class="stage-tab active" data-stage="learn" role="tab">ნახე და გაიგე</button>
+        <button class="stage-tab" data-stage="practice" role="tab">ივარჯიშე</button>
+        <button class="stage-tab" data-stage="check" role="tab">შეამოწმე</button>
+      </div>
+
+      <div id="stageContent"></div>
+    </section>
+
+    <section class="quiz-card" id="chapterQuiz" hidden>
+      <div class="quiz-top">
+        <div>
+          <p class="eyebrow">თავის ვიქტორინა</p>
+          <h2>რა ვისწავლეთ?</h2>
+        </div>
+        <span class="quiz-score" id="quizScore">0 / 5</span>
+      </div>
+      <div id="quizBody"></div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  
+
+  <script>
+    window.initialMode = new URLSearchParams(location.search).get('mode') === 'vertical' ? 'vertical' : 'horizontal';
+  </script>
+  <script src="./directions.js?v=20260914-v6"></script>
+  <script>
+    const reportHeight = () => {
+      const box = document.querySelector('.app-shell');
+      if (box && window.parent !== window) {
+        parent.postMessage({type:'direction-height', height: Math.ceil(box.getBoundingClientRect().height)}, '*');
+      }
+    };
+    window.addEventListener('load', reportHeight);
+    if ('ResizeObserver' in window) {
+      const box = document.querySelector('.app-shell');
+      if (box) new ResizeObserver(reportHeight).observe(box);
+    }
+    window.addEventListener('message', (event) => {
+      if (event.data?.type === 'direction-mute') {
+        const btn = document.getElementById('soundBtn');
+        if (btn && typeof soundOn !== 'undefined') {
+          const shouldMute = !!event.data.muted;
+          if (shouldMute === soundOn) btn.click();
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
